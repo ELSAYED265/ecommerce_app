@@ -2,6 +2,7 @@ import 'package:ecommerce_app/controller/on_boarding_cubit.dart';
 import 'package:ecommerce_app/core/localization/changeLocal.dart';
 import 'package:ecommerce_app/core/localization/transualtion.dart';
 import 'package:ecommerce_app/core/services/sevices.dart';
+import 'package:ecommerce_app/roots.dart';
 import 'package:ecommerce_app/view/screen/auth/login.dart';
 import 'package:ecommerce_app/view/screen/language.dart';
 import 'package:ecommerce_app/view/screen/onBoarding.dart';
@@ -32,11 +33,7 @@ class MyApp extends StatelessWidget {
         translations: MyTranslation(),
         // home: Onboarding(),
         initialRoute: AppRoote.Language,
-        routes: {
-          AppRoote.OnBoarding: (context) => Onboarding(),
-          AppRoote.Login: (context) => Login(),
-          AppRoote.Language: (context) => Language(),
-        },
+        routes: routes,
 
         theme: ThemeData(
           textTheme: TextTheme(

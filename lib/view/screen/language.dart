@@ -1,4 +1,5 @@
 import 'package:ecommerce_app/core/constant/Color.dart';
+import 'package:ecommerce_app/core/constant/Roote.dart';
 import 'package:ecommerce_app/core/localization/changeLocal.dart';
 import 'package:ecommerce_app/view/widget/generalWidget/customButton.dart';
 import 'package:flutter/material.dart';
@@ -20,12 +21,14 @@ class Language extends GetView<LocalController> {
             text: 'arabic',
             onPressed: () {
               controller.changLan("ar");
+              Get.toNamed(AppRoote.OnBoarding);
             },
           ),
           Customlanguebottom(
             text: "english",
             onPressed: () {
               controller.changLan("en");
+              Get.toNamed(AppRoote.OnBoarding);
             },
           ),
         ],
