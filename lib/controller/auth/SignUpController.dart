@@ -5,18 +5,15 @@ import 'package:get/get.dart';
 abstract class SignUpController extends GetxController {
   SignUp();
   goToLogin();
+}
+
+class SignUpControllerImp extends SignUpController {
   late TextEditingController username;
   late TextEditingController email;
   late TextEditingController phone;
   late TextEditingController password;
-}
-
-class SignUpControllerImp extends SignUpController {
   @override
-  SignUp() {
-    // TODO: implement SignUp
-    throw UnimplementedError();
-  }
+  SignUp() {}
 
   @override
   goToLogin() {

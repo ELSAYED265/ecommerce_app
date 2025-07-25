@@ -15,7 +15,7 @@ class SignUp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    SignUpController controller = Get.put(SignUpControllerImp());
+    SignUpControllerImp controller = Get.put(SignUpControllerImp());
     return Scaffold(
       backgroundColor: AppColor.white,
       appBar: AppBar(
@@ -69,14 +69,7 @@ class SignUp extends StatelessWidget {
               labelText: "Enter your password",
               icon: Icons.lock_clock_outlined,
             ),
-            InkWell(
-              child: Text(
-                "Forget password?",
-                style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
-                textAlign: TextAlign.right,
-              ),
-              onTap: () {},
-            ),
+
             CustombottomAuth(
               text: "Login",
               style: TextStyle(color: Colors.white),

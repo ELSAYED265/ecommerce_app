@@ -1,22 +1,21 @@
 import 'package:ecommerce_app/controller/auth/LoginController.dart';
+import 'package:ecommerce_app/controller/auth/forgetPassowrdController.dart';
 import 'package:ecommerce_app/core/constant/Color.dart';
 import 'package:ecommerce_app/view/widget/AuthWidget/CustomTextBodyAuth.dart';
 import 'package:ecommerce_app/view/widget/AuthWidget/customBottomAuth.dart';
-import 'package:ecommerce_app/view/widget/generalWidget/customButton.dart';
 import 'package:flutter/material.dart';
-
 import '../../widget/AuthWidget/CustomTextTitleAuth.dart';
-import '../../widget/AuthWidget/TextSingUpOrLogin.dart';
-import '../../widget/AuthWidget/logoAuth.dart';
 import '../../widget/generalWidget/customTextFormFeild.dart';
 import 'package:get/get.dart';
 
-class Login extends StatelessWidget {
-  const Login({super.key});
+class Forgetpassword extends StatelessWidget {
+  const Forgetpassword({super.key});
 
   @override
   Widget build(BuildContext context) {
-    LoginControllerImp controller = Get.put(LoginControllerImp());
+    ForgetpassowrdcontrollerImp controller = Get.put(
+      ForgetpassowrdcontrollerImp(),
+    );
     return Scaffold(
       backgroundColor: AppColor.white,
       appBar: AppBar(
@@ -27,7 +26,7 @@ class Login extends StatelessWidget {
         title: Padding(
           padding: const EdgeInsets.only(top: 30, bottom: 4),
           child: Text(
-            "Login",
+            "ForgetPassword",
             style: Theme.of(
               context,
             ).textTheme.bodyLarge!.copyWith(fontSize: 21),
@@ -39,12 +38,10 @@ class Login extends StatelessWidget {
         child: ListView(
           children: [
             SizedBox(height: 20),
-            Logoauth(),
-            CustomTextTitleAuth(title: "Welcom Back"),
+            CustomTextTitleAuth(title: "Chek Email"),
             SizedBox(height: 10),
             CustomtextbodyAuth(
-              body:
-                  "Login With email and password \n or continu with socail media",
+              body: "You can resit account \n By enter your email  ",
             ),
             SizedBox(height: 55),
             CustomTextField(
@@ -53,33 +50,13 @@ class Login extends StatelessWidget {
               labelText: "Email",
               icon: Icons.email_outlined,
             ),
-            CustomTextField(
-              controller: controller.password,
-              hintText: "Passowrd",
-              labelText: "Enter your password",
-              icon: Icons.lock_clock_outlined,
-            ),
-            InkWell(
-              child: Text(
-                "Forget password?",
-                style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
-                textAlign: TextAlign.right,
-              ),
-              onTap: () {
-                controller.forgetPassword();
-              },
-            ),
+
             CustombottomAuth(
-              text: "Login",
+              text: "Chek",
               style: TextStyle(color: Colors.white),
               color: AppColor.OrangeColor,
-              onPressed: () {},
-            ),
-            Textsinguporlogin(
-              text1: 'Don`t have any accont ?  ',
-              text2: 'SignUp',
-              onTap: () {
-                controller.goToSinUp();
+              onPressed: () {
+                controller.goToVerfyCode();
               },
             ),
           ],
