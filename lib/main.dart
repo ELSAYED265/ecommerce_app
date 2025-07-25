@@ -25,11 +25,11 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    LocalController controller = Get.put(LocalController());
+    LocalController controllerx = Get.put(LocalController());
     return BlocProvider(
       create: (context) => OnBoardingCubit(),
       child: GetMaterialApp(
-        locale: controller.language,
+        locale: controllerx.language,
         translations: MyTranslation(),
         // home: Onboarding(),
         initialRoute: AppRoote.Language,
@@ -41,6 +41,13 @@ class MyApp extends StatelessWidget {
               height: 1.5,
               color: AppColor.grey,
               fontWeight: FontWeight.bold,
+              fontFamily: "PlayfairDisplay",
+            ),
+            bodyMedium: TextStyle(
+              fontSize: 25,
+              color: Colors.black.withAlpha(460),
+              fontWeight: FontWeight.bold,
+              fontFamily: "PlayfairDisplay",
             ),
             titleLarge: TextStyle(
               fontWeight: FontWeight.bold,

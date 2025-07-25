@@ -8,7 +8,7 @@ import 'package:get/get.dart';
 import '../widget/language/customLangueBottom.dart';
 
 class Language extends GetView<LocalController> {
-  const Language({super.key});
+  Language({super.key});
   @override
   Widget build(BuildContext context) {
     return Scaffold(
