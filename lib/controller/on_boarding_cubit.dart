@@ -18,13 +18,13 @@ class OnBoardingCubit extends Cubit<OnBoardingState> {
   }
 
   void next(BuildContext context) {
-    if (currentindex > onBoardingList.length - 1) {
+    if (currentindex > onBoardingList.length - 2) {
       Navigator.of(context).pushReplacementNamed("login");
     } else {
       currentindex++;
       pageController.animateToPage(
         currentindex,
-        duration: Duration(milliseconds: 500),
+        duration: Duration(milliseconds: 250),
         curve: Curves.easeIn,
       );
     }

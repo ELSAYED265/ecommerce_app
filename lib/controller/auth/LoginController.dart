@@ -12,6 +12,7 @@ class LoginControllerImp extends LoginController {
   GlobalKey<FormState> form = GlobalKey();
   late TextEditingController email;
   late TextEditingController password;
+  bool isshowpassword = true;
   @override
   Login() {
     var formdata = form.currentState;
@@ -22,16 +23,19 @@ class LoginControllerImp extends LoginController {
     }
   }
 
+  showPassword() {
+    isshowpassword == true ? isshowpassword = false : isshowpassword = true;
+    update();
+  }
+
   @override
   goToSinUp() {
     Get.toNamed(AppRoote.SignUp);
-    throw UnimplementedError();
   }
 
   @override
   forgetPassword() {
     Get.offNamed(AppRoote.ForgetPassword);
-    throw UnimplementedError();
   }
 
   @override

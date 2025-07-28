@@ -2,6 +2,7 @@ import 'package:ecommerce_app/controller/onBoardingController.dart';
 import 'package:ecommerce_app/controller/on_boarding_cubit.dart';
 import 'package:ecommerce_app/core/constant/Color.dart';
 import 'package:ecommerce_app/data/datasource/static/static.dart';
+import 'package:ecommerce_app/data/model/onboardingModel.dart';
 import 'package:ecommerce_app/view/widget/onBoarding/CustomBottom.dart';
 import 'package:ecommerce_app/view/widget/onBoarding/customDotController.dart';
 import 'package:ecommerce_app/view/widget/onBoarding/customSlider.dart';
@@ -12,18 +13,12 @@ import 'package:get/get_core/src/get_main.dart';
 
 import '../../data/datasource/static/static.dart';
 
-class Onboarding extends StatefulWidget {
+class Onboarding extends StatelessWidget {
   const Onboarding({super.key});
 
   @override
-  State<Onboarding> createState() => _OnboardingState();
-}
-
-class _OnboardingState extends State<Onboarding> {
-  @override
   Widget build(BuildContext context) {
-    // PageController pageController = PageController();
-    // Get.put(OnBoardingControllerImp());
+    Get.put(OnBoardingControllerImp());
     return Scaffold(
       backgroundColor: Colors.white,
       body: Padding(

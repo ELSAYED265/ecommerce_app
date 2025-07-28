@@ -16,7 +16,7 @@ class SignUp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    SignUpControllerImp controller = Get.put(SignUpControllerImp());
+    //Get.lazyPut(() => SignUpControllerImp());
     return Scaffold(
       backgroundColor: AppColor.white,
       appBar: AppBar(
@@ -34,73 +34,84 @@ class SignUp extends StatelessWidget {
           ),
         ),
       ),
-      body: Form(
-        key: controller.formState,
-        child: Padding(
-          padding: EdgeInsets.symmetric(horizontal: 30),
-          child: ListView(
-            children: [
-              SizedBox(height: 20),
-              CustomTextTitleAuth(title: "10".tr),
-              SizedBox(height: 10),
-              CustomtextbodyAuth(body: "24".tr),
-              SizedBox(height: 55),
-              CustomTextField(
-                controller: controller.username,
-                hintText: '23'.tr,
-                labelText: "20".tr,
-                icon: Icons.person_2_outlined,
-                validator: (val) {
-                  return ValidInput(val!, 50, 12, "username");
-                },
-              ),
-              CustomTextField(
-                controller: controller.email,
-                hintText: '12'.tr,
-                labelText: "18".tr,
-                icon: Icons.email_outlined,
-                validator: (val) {
-                  return ValidInput(val!, 100, 10, "email");
-                },
-              ),
-              CustomTextField(
-                controller: controller.phone,
-                hintText: '22'.tr,
-                labelText: "21".tr,
-                icon: Icons.phone_android_outlined,
-                validator: (val) {
-                  return ValidInput(val!, 15, 11, "phone");
-                },
-              ),
-              CustomTextField(
-                controller: controller.password,
-                hintText: "19".tr,
-                labelText: "13".tr,
-                icon: Icons.lock_clock_outlined,
-                validator: (val) {
-                  return ValidInput(val!, 30, 5, "password");
-                },
-              ),
+      body: GetBuilder<SignUpControllerImp>(
+        builder: (controller) {
+          return Form(
+            key: controller.formState,
+            child: Padding(
+              padding: EdgeInsets.symmetric(horizontal: 30),
+              child: ListView(
+                children: [
+                  SizedBox(height: 20),
+                  CustomTextTitleAuth(title: "10".tr),
+                  SizedBox(height: 10),
+                  CustomtextbodyAuth(body: "24".tr),
+                  SizedBox(height: 55),
+                  CustomTextField(
+                    controller: controller.username,
+                    hintText: '23'.tr,
+                    labelText: "20".tr,
+                    icon: Icons.person_2_outlined,
+                    validator: (val) {
+                      return ValidInput(val!, 50, 12, "username");
+                    },
+                  ),
+                  CustomTextField(
+                    controller: controller.email,
+                    hintText: '12'.tr,
+                    labelText: "18".tr,
+                    icon: Icons.email_outlined,
+                    validator: (val) {
+                      return ValidInput(val!, 100, 10, "email");
+                    },
+                  ),
+                  CustomTextField(
+                    controller: controller.phone,
+                    hintText: '22'.tr,
+                    labelText: "21".tr,
+                    icon: Icons.phone_android_outlined,
+                    validator: (val) {
+                      return ValidInput(val!, 15, 11, "phone");
+                    },
+                    keyboardType: TextInputType.phone,
+                  ),
+                  CustomTextField(
+                    controller: controller.password,
+                    hintText: "19".tr,
+                    labelText: "13".tr,
+                    icon: Icons.lock_clock_outlined,
+                    validator: (val) {
+                      return ValidInput(val!, 30, 5, "password");
+                    },
+                    obscureText: true, //hide password
+                  ),
 
-              CustombottomAuth(
-                text: "17".tr,
-                style: TextStyle(color: Colors.white),
-                color: AppColor.OrangeColor,
-                onPressed: () {
-                  controller.SignUp();
-                },
+                  CustombottomAuth(
+                    text: "17".tr,
+                    style: TextStyle(color: Colors.white),
+                    color: AppColor.OrangeColor,
+                    onPressed: () {
+                      controller.SignUp();
+                    },
+                  ),
+                  Textsinguporlogin(
+                    text1: '25'.tr,
+                    text2: '9'.tr,
+                    onTap: () {
+                      controller.goToLogin();
+                    },
+                  ),
+                ],
               ),
-              Textsinguporlogin(
-                text1: '25'.tr,
-                text2: '9'.tr,
-                onTap: () {
-                  controller.goToLogin();
-                },
-              ),
-            ],
-          ),
-        ),
+            ),
+          );
+        },
       ),
     );
   }
 }
+
+//GetBuilder ليه عملت
+//عشان انا مستخدم lazyPut
+//طيب ليه استخدمت lazyput
+//عشان البانات تتمسح لما اخرج من signup

@@ -12,6 +12,9 @@ class CustomTextField extends StatelessWidget {
     required this.icon,
     required this.controller,
     required this.validator,
+    this.keyboardType,
+    this.obscureText,
+    this.onPressedIcon,
   });
   final String hintText;
   final String labelText;
@@ -21,6 +24,9 @@ class CustomTextField extends StatelessWidget {
   //final void Function(String)? onChanged;
   final TextEditingController? controller;
   final String? Function(String?)? validator;
+  final TextInputType? keyboardType;
+  final bool? obscureText;
+  final void Function()? onPressedIcon;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -32,18 +38,13 @@ class CustomTextField extends StatelessWidget {
         cursorColor: AppColor.grey,
         maxLines: MaxLine,
         validator: validator,
-        // validator: (val) {
-        //   if (val?.isEmpty ?? true) {
-        //     return "is feild are required";
-        //   } else {
-        //     return null;
-        //   }
-        // },
+        keyboardType: keyboardType,
+        obscureText: obscureText == null || obscureText == false ? false : true,
         decoration: InputDecoration(
           contentPadding: EdgeInsets.symmetric(horizontal: 20),
           suffixIcon: Container(
             margin: EdgeInsets.symmetric(horizontal: 15),
-            child: Icon(icon),
+            child: IconButton(icon: Icon(icon), onPressed: onPressedIcon),
           ),
           hintText: hintText,
           labelText: labelText,

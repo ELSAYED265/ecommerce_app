@@ -54,6 +54,7 @@ class ResetPassword extends StatelessWidget {
                 validator: (val) {
                   return ValidInput(val!, 30, 5, "password");
                 },
+                obscureText: true, //hide password
               ),
               CustomTextField(
                 controller: controller.RePassword,
@@ -63,6 +64,7 @@ class ResetPassword extends StatelessWidget {
                 validator: (val) {
                   return ValidInput(val!, 30, 5, "password");
                 },
+                obscureText: true, //hide password
               ),
 
               CustombottomAuth(

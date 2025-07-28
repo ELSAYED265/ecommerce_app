@@ -12,12 +12,13 @@ ValidInput(String val, int max, int min, String type) {
     }
   }
   if (type == "password") {
-    if (!GetUtils.isEmail(val)) {
+    if (!GetUtils.isPassport(val)) {
       return "not vaild password";
+      //حروف وارقام بس
     }
   }
   if (type == "phone") {
-    if (!GetUtils.isEmail(val)) {
+    if (!GetUtils.isPhoneNumber(val)) {
       return "not vaild phone";
     }
   }

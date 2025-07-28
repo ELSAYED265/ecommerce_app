@@ -1,3 +1,4 @@
+import 'package:ecommerce_app/binding.dart';
 import 'package:ecommerce_app/controller/on_boarding_cubit.dart';
 import 'package:ecommerce_app/core/localization/changeLocal.dart';
 import 'package:ecommerce_app/core/localization/transualtion.dart';
@@ -32,9 +33,9 @@ class MyApp extends StatelessWidget {
         locale: controller.language,
         translations: MyTranslation(),
         // home: Onboarding(),
-        initialRoute: AppRoote.Language,
-        routes: routes,
-
+        // routes: routes,
+        getPages: getPages,
+        initialBinding: Mybinding(),
         theme: controller.apptheme,
       ),
     );
