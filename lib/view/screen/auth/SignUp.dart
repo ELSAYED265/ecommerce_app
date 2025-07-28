@@ -1,3 +1,4 @@
+import 'package:ecommerce_app/core/function/validInput.dart';
 import 'package:flutter/material.dart';
 
 import '../../../controller/auth/SignUpController.dart';
@@ -26,64 +27,78 @@ class SignUp extends StatelessWidget {
         title: Padding(
           padding: const EdgeInsets.only(top: 30, bottom: 4),
           child: Text(
-            "SinUp",
+            "17".tr,
             style: Theme.of(
               context,
             ).textTheme.bodyLarge!.copyWith(fontSize: 21),
           ),
         ),
       ),
-      body: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 30),
-        child: ListView(
-          children: [
-            SizedBox(height: 20),
-            CustomTextTitleAuth(title: "Welcom Back"),
-            SizedBox(height: 10),
-            CustomtextbodyAuth(
-              body:
-                  "SignUp With email and password \n or continu with socail media",
-            ),
-            SizedBox(height: 55),
-            CustomTextField(
-              controller: controller.username,
-              hintText: 'Enter your username',
-              labelText: "Username",
-              icon: Icons.person_2_outlined,
-            ),
-            CustomTextField(
-              controller: controller.email,
-              hintText: 'Enter your email',
-              labelText: "Email",
-              icon: Icons.email_outlined,
-            ),
-            CustomTextField(
-              controller: controller.phone,
-              hintText: 'Enter your Phone',
-              labelText: "Phone",
-              icon: Icons.phone_android_outlined,
-            ),
-            CustomTextField(
-              controller: controller.password,
-              hintText: "Passowrd",
-              labelText: "Enter your password",
-              icon: Icons.lock_clock_outlined,
-            ),
+      body: Form(
+        key: controller.formState,
+        child: Padding(
+          padding: EdgeInsets.symmetric(horizontal: 30),
+          child: ListView(
+            children: [
+              SizedBox(height: 20),
+              CustomTextTitleAuth(title: "10".tr),
+              SizedBox(height: 10),
+              CustomtextbodyAuth(body: "24".tr),
+              SizedBox(height: 55),
+              CustomTextField(
+                controller: controller.username,
+                hintText: '23'.tr,
+                labelText: "20".tr,
+                icon: Icons.person_2_outlined,
+                validator: (val) {
+                  return ValidInput(val!, 50, 12, "username");
+                },
+              ),
+              CustomTextField(
+                controller: controller.email,
+                hintText: '12'.tr,
+                labelText: "18".tr,
+                icon: Icons.email_outlined,
+                validator: (val) {
+                  return ValidInput(val!, 100, 10, "email");
+                },
+              ),
+              CustomTextField(
+                controller: controller.phone,
+                hintText: '22'.tr,
+                labelText: "21".tr,
+                icon: Icons.phone_android_outlined,
+                validator: (val) {
+                  return ValidInput(val!, 15, 11, "phone");
+                },
+              ),
+              CustomTextField(
+                controller: controller.password,
+                hintText: "19".tr,
+                labelText: "13".tr,
+                icon: Icons.lock_clock_outlined,
+                validator: (val) {
+                  return ValidInput(val!, 30, 5, "password");
+                },
+              ),
 
-            CustombottomAuth(
-              text: "Login",
-              style: TextStyle(color: Colors.white),
-              color: AppColor.OrangeColor,
-              onPressed: () {},
-            ),
-            Textsinguporlogin(
-              text1: ' have any accont ?',
-              text2: 'Login',
-              onTap: () {
-                controller.goToLogin();
-              },
-            ),
-          ],
+              CustombottomAuth(
+                text: "17".tr,
+                style: TextStyle(color: Colors.white),
+                color: AppColor.OrangeColor,
+                onPressed: () {
+                  controller.SignUp();
+                },
+              ),
+              Textsinguporlogin(
+                text1: '25'.tr,
+                text2: '9'.tr,
+                onTap: () {
+                  controller.goToLogin();
+                },
+              ),
+            ],
+          ),
         ),
       ),
     );

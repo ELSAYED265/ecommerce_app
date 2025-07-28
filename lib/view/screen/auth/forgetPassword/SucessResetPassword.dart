@@ -1,16 +1,17 @@
 import 'package:flutter/material.dart';
-import '../../../controller/auth/SuccessSignUpController.dart';
-import '../../../core/constant/Color.dart';
-import '../../widget/AuthWidget/customBottomAuth.dart';
+
+import '../../../../controller/auth/SuccessResetPasswordController.dart';
+import '../../../../core/constant/Color.dart';
+import '../../../widget/AuthWidget/customBottomAuth.dart';
 import 'package:get/get.dart';
 
-class SuccessSignup extends StatelessWidget {
-  const SuccessSignup({super.key});
+class SuccessResetPassword extends StatelessWidget {
+  const SuccessResetPassword({super.key});
 
   @override
   Widget build(BuildContext context) {
-    SuccessSignUpControllerImp controller = Get.put(
-      SuccessSignUpControllerImp(),
+    SuccessResetPasswordControllerImp controller = Get.put(
+      SuccessResetPasswordControllerImp(),
     );
     return Scaffold(
       backgroundColor: AppColor.white,

@@ -23,7 +23,7 @@ class CustombottomOnBoarding extends StatelessWidget {
               // controller.next();
               BlocProvider.of<OnBoardingCubit>(context).next(context);
             },
-            child: Text("continue"),
+            child: Text("8".tr),
             color: AppColor.kPrimaryColor,
             textColor: Colors.white,
           ),

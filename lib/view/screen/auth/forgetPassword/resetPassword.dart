@@ -1,23 +1,23 @@
 import 'package:ecommerce_app/controller/auth/LoginController.dart';
+import 'package:ecommerce_app/controller/auth/forgetPassowrdController.dart';
 import 'package:ecommerce_app/core/constant/Color.dart';
-import 'package:ecommerce_app/core/function/validInput.dart';
 import 'package:ecommerce_app/view/widget/AuthWidget/CustomTextBodyAuth.dart';
 import 'package:ecommerce_app/view/widget/AuthWidget/customBottomAuth.dart';
-import 'package:ecommerce_app/view/widget/generalWidget/customButton.dart';
 import 'package:flutter/material.dart';
-
-import '../../widget/AuthWidget/CustomTextTitleAuth.dart';
-import '../../widget/AuthWidget/TextSingUpOrLogin.dart';
-import '../../widget/AuthWidget/logoAuth.dart';
-import '../../widget/generalWidget/customTextFormFeild.dart';
+import '../../../../controller/auth/resetPasswordController.dart';
+import '../../../../core/function/validInput.dart';
+import '../../../widget/AuthWidget/CustomTextTitleAuth.dart';
+import '../../../widget/generalWidget/customTextFormFeild.dart';
 import 'package:get/get.dart';
 
-class Login extends StatelessWidget {
-  const Login({super.key});
+class ResetPassword extends StatelessWidget {
+  const ResetPassword({super.key});
 
   @override
   Widget build(BuildContext context) {
-    LoginControllerImp controller = Get.put(LoginControllerImp());
+    ResetpassowrdcontrollerImp controller = Get.put(
+      ResetpassowrdcontrollerImp(),
+    );
     return Scaffold(
       backgroundColor: AppColor.white,
       appBar: AppBar(
@@ -28,7 +28,7 @@ class Login extends StatelessWidget {
         title: Padding(
           padding: const EdgeInsets.only(top: 30, bottom: 4),
           child: Text(
-            "9".tr,
+            "Reset_Password",
             style: Theme.of(
               context,
             ).textTheme.bodyLarge!.copyWith(fontSize: 21),
@@ -36,58 +36,41 @@ class Login extends StatelessWidget {
         ),
       ),
       body: Form(
-        key: controller.form,
+        key: controller.formState,
         child: Padding(
           padding: EdgeInsets.symmetric(horizontal: 30),
           child: ListView(
             children: [
               SizedBox(height: 20),
-              Logoauth(),
-              CustomTextTitleAuth(title: "10".tr),
+              CustomTextTitleAuth(title: "Chec Password"),
               SizedBox(height: 10),
-              CustomtextbodyAuth(body: "11".tr),
+              CustomtextbodyAuth(body: "Please Enter New Password "),
               SizedBox(height: 55),
               CustomTextField(
-                controller: controller.email,
-                hintText: '12'.tr,
-                labelText: "18".tr,
-                icon: Icons.email_outlined,
-                validator: (val) {
-                  return ValidInput(val!, 100, 10, "email");
-                },
-              ),
-              CustomTextField(
                 controller: controller.password,
-                hintText: "19".tr,
-                labelText: "13".tr,
+                hintText: 'Enter you password',
+                labelText: "Password",
                 icon: Icons.lock_clock_outlined,
                 validator: (val) {
                   return ValidInput(val!, 30, 5, "password");
                 },
               ),
-              InkWell(
-                child: Text(
-                  "14".tr,
-                  style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
-                  textAlign: TextAlign.right,
-                ),
-                onTap: () {
-                  controller.forgetPassword();
+              CustomTextField(
+                controller: controller.RePassword,
+                hintText: 'Repite you password',
+                labelText: "Password",
+                icon: Icons.lock_clock_outlined,
+                validator: (val) {
+                  return ValidInput(val!, 30, 5, "password");
                 },
               ),
+
               CustombottomAuth(
-                text: "9".tr,
+                text: "save",
                 style: TextStyle(color: Colors.white),
                 color: AppColor.OrangeColor,
                 onPressed: () {
-                  controller.Login();
-                },
-              ),
-              Textsinguporlogin(
-                text1: '16'.tr,
-                text2: '17'.tr,
-                onTap: () {
-                  controller.goToSinUp();
+                  controller.goToSucessResetPassword();
                 },
               ),
             ],

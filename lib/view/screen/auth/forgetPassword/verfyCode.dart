@@ -5,9 +5,9 @@ import 'package:ecommerce_app/view/widget/AuthWidget/CustomTextBodyAuth.dart';
 import 'package:ecommerce_app/view/widget/AuthWidget/customBottomAuth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_otp_text_field/flutter_otp_text_field.dart';
-import '../../../controller/auth/forgetPassowrdController.dart';
-import '../../widget/AuthWidget/CustomTextTitleAuth.dart';
-import '../../widget/generalWidget/customTextFormFeild.dart';
+import '../../../../controller/auth/forgetPassowrdController.dart';
+import '../../../widget/AuthWidget/CustomTextTitleAuth.dart';
+import '../../../widget/generalWidget/customTextFormFeild.dart';
 import 'package:get/get.dart';
 
 class verfyCode extends StatelessWidget {

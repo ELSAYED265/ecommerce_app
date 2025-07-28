@@ -12,10 +12,11 @@ class Language extends GetView<LocalController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Text("choose lang".tr, style: Theme.of(context).textTheme.titleLarge),
+          Text("1".tr, style: Theme.of(context).textTheme.titleLarge),
           SizedBox(height: 20),
           Customlanguebottom(
             text: 'arabic',

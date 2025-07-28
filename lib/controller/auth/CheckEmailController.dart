@@ -2,12 +2,12 @@ import 'package:ecommerce_app/core/constant/Roote.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 
-abstract class Forgetpassowrdcontroller extends GetxController {
+abstract class Checkemailcontroller extends GetxController {
   checkEmail();
   goToVerfyCode();
 }
 
-class ForgetpassowrdcontrollerImp extends Forgetpassowrdcontroller {
+class CheckemailcontrollerImp extends Checkemailcontroller {
   late TextEditingController email;
   GlobalKey<FormState> formState = GlobalKey();
   @override
@@ -17,7 +17,7 @@ class ForgetpassowrdcontrollerImp extends Forgetpassowrdcontroller {
   goToVerfyCode() {
     var formdata = formState.currentState;
     if (formdata!.validate()) {
-      Get.toNamed(AppRoote.verfiyCode);
+      Get.toNamed(AppRoote.verfyCodeSignUp);
     } else {
       print("not vaild");
     }

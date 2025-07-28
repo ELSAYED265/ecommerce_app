@@ -2,20 +2,26 @@ import 'package:ecommerce_app/core/constant/Roote.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 
-abstract class Resetpasswordcontrollere extends GetxController {
+abstract class Resetpasswordcontroller extends GetxController {
   checkPassword();
-  goToVerfySucess();
+  goToSucessResetPassword();
 }
 
-class ResetpassowrdcontrollerImp extends Resetpasswordcontrollere {
+class ResetpassowrdcontrollerImp extends Resetpasswordcontroller {
   late TextEditingController password;
   late TextEditingController RePassword;
+  GlobalKey<FormState> formState = GlobalKey();
   @override
   checkPassword() {}
 
   @override
-  goToVerfySucess() {
-    //  Get.toNamed(AppRoote.verfiyCode);
+  goToSucessResetPassword() {
+    var formdata = formState.currentState;
+    if (formdata!.validate()) {
+      Get.offNamed(AppRoote.successResetPassword);
+    } else {
+      print("not vaild");
+    }
   }
 
   @override

@@ -33,6 +33,7 @@ class Customslider extends StatelessWidget {
                 onBoardingList[i].image!,
                 height: 200,
                 width: 200,
+                //height: Get.width / 3.5,
                 fit: BoxFit.fill,
               ),
               SizedBox(height: 60),

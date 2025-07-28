@@ -12,13 +12,20 @@ class SignUpControllerImp extends SignUpController {
   late TextEditingController email;
   late TextEditingController phone;
   late TextEditingController password;
+  GlobalKey<FormState> formState = GlobalKey();
   @override
-  SignUp() {}
+  SignUp() {
+    var formdata = formState.currentState;
+    if (formdata!.validate()) {
+      Get.offNamed(AppRoote.checkEmail);
+    } else {
+      print("not vaild");
+    }
+  }
 
   @override
   goToLogin() {
     Get.offNamed(AppRoote.Login);
-    throw UnimplementedError();
   }
 
   @override
