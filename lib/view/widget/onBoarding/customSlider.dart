@@ -84,7 +84,7 @@ class Customslider extends GetView<OnBoardingControllerImp> {
         children: [
           Text(
             onBoardingList[i].title!,
-            style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+            style: TextStyle(fontWeight: FontWeight.bold, fontSize: 23),
           ),
           SizedBox(height: 80),
           Image.asset(
@@ -101,7 +101,7 @@ class Customslider extends GetView<OnBoardingControllerImp> {
             child: Text(
               onBoardingList[i].body!,
               textAlign: TextAlign.center,
-              style: TextTheme.of(context).bodyLarge,
+              style: TextTheme.of(context).bodyLarge!.copyWith(fontSize: 20),
             ),
           ),
         ],

@@ -30,7 +30,7 @@ class CustomTextField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 14),
+      padding: const EdgeInsets.symmetric(vertical: 17),
       child: TextFormField(
         // onChanged: onChanged,
         // onSaved: onsave,
@@ -41,7 +41,7 @@ class CustomTextField extends StatelessWidget {
         keyboardType: keyboardType,
         obscureText: obscureText == null || obscureText == false ? false : true,
         decoration: InputDecoration(
-          contentPadding: EdgeInsets.symmetric(horizontal: 20),
+          contentPadding: EdgeInsets.symmetric(horizontal: 20, vertical: 17),
           suffixIcon: Container(
             margin: EdgeInsets.symmetric(horizontal: 15),
             child: IconButton(icon: Icon(icon), onPressed: onPressedIcon),

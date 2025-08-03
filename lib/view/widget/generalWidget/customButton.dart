@@ -23,7 +23,7 @@ class Custombottom extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       height: 40,
-      margin: EdgeInsets.symmetric(vertical: 10),
+      margin: EdgeInsets.symmetric(vertical: 50),
       child: MaterialButton(
         onPressed: onPressed,
         child: Text(text, style: style),

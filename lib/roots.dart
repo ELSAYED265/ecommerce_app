@@ -1,4 +1,5 @@
 import 'package:ecommerce_app/core/middleware/myMiddleWare.dart';
+import 'package:ecommerce_app/test.dart';
 import 'package:ecommerce_app/view/screen/auth/SignUp.dart';
 import 'package:ecommerce_app/view/screen/auth/Success_SignUp.dart';
 import 'package:ecommerce_app/view/screen/auth/forgetPassword/SucessResetPassword.dart';
@@ -9,6 +10,7 @@ import 'package:ecommerce_app/view/screen/auth/forgetPassword/verfyCode.dart';
 import 'package:ecommerce_app/view/screen/auth/verfyCodeSignUp.dart';
 import 'package:ecommerce_app/view/screen/language.dart';
 import 'package:ecommerce_app/view/screen/onBoarding.dart';
+import 'package:ecommerce_app/view/testView.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get_navigation/src/routes/get_route.dart';
 import 'package:path/path.dart';
@@ -17,6 +19,7 @@ import 'core/constant/Roote.dart';
 
 List<GetPage<dynamic>>? getPages = [
   GetPage(name: "/", page: () => Language(), middlewares: [MyMiddleWare()]),
+  //GetPage(name: "/", page: () => Testview()),
   GetPage(name: AppRoote.OnBoarding, page: () => Onboarding()),
   GetPage(name: AppRoote.Login, page: () => Login()),
   GetPage(name: AppRoote.SignUp, page: () => SignUp()),

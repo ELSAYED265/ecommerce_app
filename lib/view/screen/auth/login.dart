@@ -41,7 +41,7 @@ class Login extends StatelessWidget {
         child: Form(
           key: controller.form,
           child: Padding(
-            padding: EdgeInsets.symmetric(horizontal: 30),
+            padding: EdgeInsets.symmetric(horizontal: 15),
             child: ListView(
               children: [
                 SizedBox(height: 20),
@@ -74,15 +74,21 @@ class Login extends StatelessWidget {
                     obscureText: controller.isshowpassword, //hide password
                   ),
                 ),
-                InkWell(
-                  child: Text(
-                    "14".tr,
-                    style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
-                    textAlign: TextAlign.right,
+                Padding(
+                  padding: const EdgeInsets.only(top: 5),
+                  child: InkWell(
+                    child: Text(
+                      "14".tr,
+                      style: TextStyle(
+                        fontSize: 15,
+                        fontWeight: FontWeight.bold,
+                      ),
+                      textAlign: TextAlign.right,
+                    ),
+                    onTap: () {
+                      controller.forgetPassword();
+                    },
                   ),
-                  onTap: () {
-                    controller.forgetPassword();
-                  },
                 ),
                 CustombottomAuth(
                   text: "9".tr,

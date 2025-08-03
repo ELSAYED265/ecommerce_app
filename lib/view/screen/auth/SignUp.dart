@@ -30,7 +30,7 @@ class SignUp extends StatelessWidget {
             "17".tr,
             style: Theme.of(
               context,
-            ).textTheme.bodyLarge!.copyWith(fontSize: 21),
+            ).textTheme.bodyLarge!.copyWith(fontSize: 25),
           ),
         ),
       ),
@@ -39,10 +39,10 @@ class SignUp extends StatelessWidget {
           return Form(
             key: controller.formState,
             child: Padding(
-              padding: EdgeInsets.symmetric(horizontal: 30),
+              padding: EdgeInsets.symmetric(horizontal: 20),
               child: ListView(
                 children: [
-                  SizedBox(height: 20),
+                  SizedBox(height: 30),
                   CustomTextTitleAuth(title: "10".tr),
                   SizedBox(height: 10),
                   CustomtextbodyAuth(body: "24".tr),
@@ -85,7 +85,6 @@ class SignUp extends StatelessWidget {
                     },
                     obscureText: true, //hide password
                   ),
-
                   CustombottomAuth(
                     text: "17".tr,
                     style: TextStyle(color: Colors.white),
@@ -94,6 +93,7 @@ class SignUp extends StatelessWidget {
                       controller.SignUp();
                     },
                   ),
+                  SizedBox(height: 20),
                   Textsinguporlogin(
                     text1: '25'.tr,
                     text2: '9'.tr,

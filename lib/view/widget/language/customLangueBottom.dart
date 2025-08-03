@@ -10,7 +10,7 @@ class Customlanguebottom extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 170),
+      padding: const EdgeInsets.symmetric(horizontal: 50),
       child: Container(
         width: double.infinity,
         child: Custombottom(

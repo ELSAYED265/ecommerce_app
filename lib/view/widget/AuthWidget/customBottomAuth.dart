@@ -15,6 +15,7 @@ class CustombottomAuth extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      padding: EdgeInsets.symmetric(vertical: 20),
       margin: EdgeInsets.symmetric(vertical: 20, horizontal: 30),
       child: MaterialButton(
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),

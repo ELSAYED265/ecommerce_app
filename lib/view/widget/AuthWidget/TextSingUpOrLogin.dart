@@ -16,7 +16,7 @@ class Textsinguporlogin extends StatelessWidget {
       children: [
         Text(
           text1,
-          style: Theme.of(context).textTheme.bodyLarge!.copyWith(fontSize: 12),
+          style: Theme.of(context).textTheme.bodyLarge!.copyWith(fontSize: 13),
         ),
         InkWell(
           onTap: onTap,
