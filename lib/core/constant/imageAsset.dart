@@ -9,4 +9,5 @@ class AppImageAssets {
   static const String loading = '$lottieAssets/loading.json';
   static const String server = '$lottieAssets/server.json';
   static const String internet = '$lottieAssets/internet.json';
+  static const String TrailLoading = '$lottieAssets/Trail_loading.json';
 }

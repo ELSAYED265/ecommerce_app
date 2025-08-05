@@ -1,5 +1,9 @@
+import 'package:ecommerce_app/core/class/handlingDataView.dart';
+import 'package:ecommerce_app/core/class/statusRequest.dart';
+import 'package:ecommerce_app/core/constant/imageAsset.dart';
 import 'package:ecommerce_app/core/function/validInput.dart';
 import 'package:flutter/material.dart';
+import 'package:lottie/lottie.dart';
 
 import '../../../controller/auth/SignUpController.dart';
 import '../../../core/constant/Color.dart';
@@ -35,8 +39,9 @@ class SignUp extends StatelessWidget {
         ),
       ),
       body: GetBuilder<SignUpControllerImp>(
-        builder: (controller) {
-          return Form(
+        builder: (controller) => HandlingdataRequest(
+          statusRequest: controller.statusRequest ?? StatusRequest.intial,
+          widget: Form(
             key: controller.formState,
             child: Padding(
               padding: EdgeInsets.symmetric(horizontal: 20),
@@ -75,15 +80,20 @@ class SignUp extends StatelessWidget {
                     },
                     keyboardType: TextInputType.phone,
                   ),
-                  CustomTextField(
-                    controller: controller.password,
-                    hintText: "19".tr,
-                    labelText: "13".tr,
-                    icon: Icons.lock_clock_outlined,
-                    validator: (val) {
-                      return ValidInput(val!, 30, 5, "password");
-                    },
-                    obscureText: true, //hide password
+                  GetBuilder<SignUpControllerImp>(
+                    builder: (controller) => CustomTextField(
+                      controller: controller.password,
+                      hintText: "19".tr,
+                      labelText: "13".tr,
+                      icon: Icons.lock_clock_outlined,
+                      onPressedIcon: () {
+                        controller.showPassword();
+                      },
+                      obscureText: controller.isshowpassword,
+                      validator: (val) {
+                        return ValidInput(val!, 10, 5, "password");
+                      }, //hide password
+                    ),
                   ),
                   CustombottomAuth(
                     text: "17".tr,
@@ -104,8 +114,8 @@ class SignUp extends StatelessWidget {
                 ],
               ),
             ),
-          );
-        },
+          ),
+        ),
       ),
     );
   }

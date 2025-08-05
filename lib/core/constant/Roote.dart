@@ -13,4 +13,6 @@ class AppRoote {
 
   //onboarding
   static const String Language = "/language";
+  ////homePage
+  static const String homePage = "/homepage";
 }

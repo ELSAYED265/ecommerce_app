@@ -1,14 +1,17 @@
 import 'package:ecommerce_app/controller/auth/LoginController.dart';
-import 'package:ecommerce_app/controller/auth/verfyPasswordController.dart';
+import 'package:ecommerce_app/controller/forgetpassword/verfyPasswordController.dart';
+import 'package:ecommerce_app/core/class/handlingDataView.dart';
 import 'package:ecommerce_app/core/constant/Color.dart';
 import 'package:ecommerce_app/view/widget/AuthWidget/CustomTextBodyAuth.dart';
 import 'package:ecommerce_app/view/widget/AuthWidget/customBottomAuth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_otp_text_field/flutter_otp_text_field.dart';
-import '../../../../controller/auth/forgetPassowrdController.dart';
+import 'package:pin_code_fields/pin_code_fields.dart';
+import '../../../controller/forgetpassword/forgetPassowrdController.dart';
 import 'package:get/get.dart';
 
 import '../../../controller/auth/verifycodeSignUpController.dart';
+import '../../../core/class/statusRequest.dart';
 import '../../widget/AuthWidget/CustomTextTitleAuth.dart';
 
 class VerfyCodeSignUp extends StatelessWidget {
@@ -16,7 +19,7 @@ class VerfyCodeSignUp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    VerfyCodeSignUpcontrollerImp controller = Get.put(
+    VerfyCodeSignUpcontrollerImp hello = Get.put(
       VerfyCodeSignUpcontrollerImp(),
     );
     return Scaffold(
@@ -38,40 +41,64 @@ class VerfyCodeSignUp extends StatelessWidget {
       ),
       body: Padding(
         padding: EdgeInsets.symmetric(horizontal: 30),
-        child: ListView(
-          children: [
-            SizedBox(height: 20),
-            CustomTextTitleAuth(title: "Chek code"),
-            SizedBox(height: 10),
-            CustomtextbodyAuth(body: "Please Enter the Digit Code Sened you  "),
-            SizedBox(height: 55),
-
-            OtpTextField(
-              borderRadius: BorderRadius.circular(12),
-              fieldWidth: 50,
-              numberOfFields: 5,
-              borderColor: Color(0xFF512DA8),
-              //set to true to show as box or false to show as dash
-              showFieldAsBox: true,
-              //runs when a code is typed in
-              onCodeChanged: (String code) {
-                //handle validation or checks here
-              },
-              //runs when every textfield is filled
-              onSubmit: (String verificationCode) {
-                controller.goToSuccessSignUp();
-                showDialog(
-                  context: context,
-                  builder: (context) {
-                    return AlertDialog(
-                      title: Text("Verification Code"),
-                      content: Text('Code entered is $verificationCode'),
-                    );
+        child: GetBuilder<VerfyCodeSignUpcontrollerImp>(
+          builder: (controller) => HandlingdataRequest(
+            statusRequest: controller.statusRequest ?? StatusRequest.intial,
+            widget: ListView(
+              children: [
+                SizedBox(height: 20),
+                CustomTextTitleAuth(title: "Chek code"),
+                SizedBox(height: 10),
+                CustomtextbodyAuth(
+                  body: "Please Enter the Digit Code Sened you  ",
+                ),
+                SizedBox(height: 55),
+                PinCodeTextField(
+                  appContext: context,
+                  length: 5,
+                  onChanged: (value) {},
+                  onCompleted: (value) {
+                    print("✅ Submitted: $value");
+                    controller.goToSuccessSignUp(value);
                   },
-                );
-              }, // end onSubmit
+                  animationType: AnimationType.fade,
+                  pinTheme: PinTheme(
+                    shape: PinCodeFieldShape.box,
+                    borderRadius: BorderRadius.circular(12),
+                    fieldHeight: 50,
+                    fieldWidth: 40,
+                    activeFillColor: Colors.white,
+                  ),
+                ),
+                // OtpTextField(
+                //   borderRadius: BorderRadius.circular(12),
+                //   fieldWidth: 50,
+                //   numberOfFields: 5,
+                //   borderColor: Color(0xFF512DA8),
+                //   //set to true to show as box or false to show as dash
+                //   showFieldAsBox: true,
+                //   //runs when a code is typed in
+                //   onCodeChanged: (String code) {
+                //     //handle validation or checks here
+                //   },
+                //   //runs when every textfield is filled
+                //   onSubmit: (String verificationCode) {
+                //     print("✅ Code submitted: $verificationCode");
+                //     controller.goToSuccessSignUp(verificationCode);
+                //     // showDialog(
+                //     //   context: context,
+                //     //   builder: (context) {
+                //     //     return AlertDialog(
+                //     //       title: Text("Verification Code"),
+                //     //       content: Text('Code entered is $verificationCode'),
+                //     //     );
+                //     //   },
+                //     // );
+                //   }, // end onSubmit
+                // ),
+              ],
             ),
-          ],
+          ),
         ),
       ),
     );

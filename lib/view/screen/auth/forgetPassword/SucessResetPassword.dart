@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../../../controller/auth/SuccessResetPasswordController.dart';
+import '../../../../controller/forgetpassword/SuccessResetPasswordController.dart';
 import '../../../../core/constant/Color.dart';
 import '../../../widget/AuthWidget/customBottomAuth.dart';
 import 'package:get/get.dart';

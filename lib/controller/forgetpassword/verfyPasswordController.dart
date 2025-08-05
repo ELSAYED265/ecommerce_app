@@ -1,32 +1,36 @@
-import 'package:ecommerce_app/core/class/statusRequest.dart';
 import 'package:ecommerce_app/core/constant/Roote.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 
+import '../../core/class/statusRequest.dart';
 import '../../core/function/handligDataController.dart';
-import '../../data/datasource/remote/Auth/verfiycodeSignUpData.dart';
+import '../../data/datasource/remote/forgetpassword/verfiycodeData.dart';
 
-abstract class VerfyCodeSignUpcontroller extends GetxController {
+abstract class Verfypassowrdcontroller extends GetxController {
   chekCode();
-  goToSuccessSignUp(String verfiyCode);
+  goToResetPassword(String verfiycode);
 }
 
-class VerfyCodeSignUpcontrollerImp extends VerfyCodeSignUpcontroller {
-  String? email;
+class VerfypassowrdcontrollerImp extends Verfypassowrdcontroller {
+  late String code;
   StatusRequest? statusRequest;
-  VerfiyCodeSignupData verfiyCodeSignupData = VerfiyCodeSignupData(Get.find());
+  VerfiycodeForgetpasswordData verfiy = VerfiycodeForgetpasswordData(
+    Get.find(),
+  );
+  String? email;
   @override
   chekCode() {}
 
   @override
-  goToSuccessSignUp(String verfiyCode) async {
+  goToResetPassword(String verfiycode) async {
     statusRequest = StatusRequest.loading;
     update();
-    var respons = await verfiyCodeSignupData.verfyCode(verfiyCode, email!);
+    var respons = await verfiy.Postdata(email!, verfiycode);
     statusRequest = HandlingData(respons);
     if (statusRequest == StatusRequest.success) {
       if (respons["status"] == 'success') {
         //data.addAll(respons['data']);
-        Get.offNamed(AppRoote.successSignUp);
+        Get.offNamed(AppRoote.resetPassword, arguments: {"email": email});
       } else {
         Get.defaultDialog(
           title: "Warning",

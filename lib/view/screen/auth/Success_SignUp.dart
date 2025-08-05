@@ -42,16 +42,16 @@ class SuccessSignup extends StatelessWidget {
               "Your account has been created successfully!",
               textAlign: TextAlign.center,
               style: TextStyle(
-                fontSize: 22,
+                fontSize: 23,
                 fontWeight: FontWeight.w600,
                 color: Colors.black87,
               ),
             ),
-            const SizedBox(height: 15),
+            const SizedBox(height: 20),
             Text(
               "Please login to continue using the app.",
               textAlign: TextAlign.center,
-              style: TextStyle(fontSize: 16, color: Colors.grey[700]),
+              style: TextStyle(fontSize: 18, color: Colors.grey[700]),
             ),
             const Spacer(),
             Container(
