@@ -10,12 +10,14 @@ class Customlanguebottom extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 50),
+      padding: const EdgeInsets.symmetric(horizontal: 50, vertical: 10),
       child: Container(
         width: double.infinity,
-        child: Custombottom(
-          text: text,
-          style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
+        child: MaterialButton(
+          child: Text(
+            text,
+            style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
+          ),
           color: AppColor.kPrimaryColor,
           onPressed: onPressed,
         ),

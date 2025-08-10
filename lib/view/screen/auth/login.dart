@@ -22,13 +22,12 @@ class Login extends StatelessWidget {
   const Login({super.key});
   @override
   Widget build(BuildContext context) {
-    Get.lazyPut(() => LoginControllerImp());
+    Get.put(LoginControllerImp());
     return Scaffold(
       backgroundColor: AppColor.white,
       appBar: AppBar(
         backgroundColor: AppColor.white,
         elevation: 0,
-
         centerTitle: true,
         title: Padding(
           padding: const EdgeInsets.only(top: 30, bottom: 4),
@@ -44,7 +43,7 @@ class Login extends StatelessWidget {
         onWillPop: AlertExitApp,
         child: GetBuilder<LoginControllerImp>(
           builder: (controller) => HandlingdataRequest(
-            statusRequest: controller.statusRequest ?? StatusRequest.intial,
+            statusRequest: controller.statusRequest,
             widget: Form(
               key: controller.form,
               child: Padding(

@@ -1,7 +1,11 @@
+import 'dart:developer';
+
 import 'package:ecommerce_app/core/class/statusRequest.dart';
 import 'package:ecommerce_app/core/constant/Roote.dart';
 import 'package:ecommerce_app/core/function/handligDataController.dart';
+import 'package:ecommerce_app/core/services/sevices.dart';
 import 'package:ecommerce_app/data/datasource/remote/Auth/loginData.dart';
+import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 
@@ -17,18 +21,35 @@ class LoginControllerImp extends LoginController {
   late TextEditingController password;
   LoginData login = LoginData(Get.find());
   bool isshowpassword = true;
-  StatusRequest? statusRequest;
+  StatusRequest statusRequest = StatusRequest.intial;
+  MySevices sevices = Get.find();
   @override
   Login() async {
     var formdata = form.currentState;
     if (formdata!.validate()) {
       statusRequest = StatusRequest.loading;
-      Future.delayed(Duration(seconds: 2));
       update();
       var response = await login.checkUser(email.text, password.text);
       statusRequest = HandlingData(response);
       if (statusRequest == StatusRequest.success) {
         if (response['status'] == "success") {
+          sevices.sharedPreferences.setString(
+            "id",
+            response['data']['users_id'].toString(),
+          );
+          sevices.sharedPreferences.setString(
+            "username",
+            response['data']['users_name'],
+          );
+          sevices.sharedPreferences.setString(
+            "email",
+            response['data']['users_email'],
+          );
+          sevices.sharedPreferences.setString(
+            "phone",
+            response['data']['users_phone'],
+          );
+          sevices.sharedPreferences.setString("step", "2");
           Get.offNamed(AppRoote.homePage);
         } else {
           Get.defaultDialog(
@@ -61,6 +82,10 @@ class LoginControllerImp extends LoginController {
 
   @override
   void onInit() {
+    FirebaseMessaging.instance.getToken().then((value) {
+      print(value);
+      String? token = value;
+    });
     email = TextEditingController();
     password = TextEditingController();
     super.onInit();

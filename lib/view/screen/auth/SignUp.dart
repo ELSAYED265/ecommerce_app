@@ -20,7 +20,7 @@ class SignUp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    //Get.lazyPut(() => SignUpControllerImp());
+    Get.lazyPut(() => SignUpControllerImp());
     return Scaffold(
       backgroundColor: AppColor.white,
       appBar: AppBar(

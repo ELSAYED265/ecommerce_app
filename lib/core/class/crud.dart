@@ -12,8 +12,6 @@ class Crud {
   ) async {
     try {
       if (await ChekInternet()) {
-        print("✅ Connected to internet");
-        print("📡 Sending request to: $url");
         http.Response response = await http.post(Uri.parse(url), body: data);
         if (response.statusCode == 200 || response.statusCode == 201) {
           var responsebody = jsonDecode(response.body);

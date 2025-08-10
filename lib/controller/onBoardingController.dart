@@ -16,7 +16,7 @@ class OnBoardingControllerImp extends OnBoardingController {
   late PageController pageController;
   next() {
     if (currentPage > onBoardingList.length - 2) {
-      mySevices.sharedPreferences.setString("onboarding", "1");
+      mySevices.sharedPreferences.setString("step", "1");
       Get.offAllNamed(AppRoote.Login);
     } else {
       currentPage++;

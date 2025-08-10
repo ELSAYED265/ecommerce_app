@@ -9,6 +9,7 @@ import 'package:ecommerce_app/view/screen/auth/forgetPassword/resetPassword.dart
 import 'package:ecommerce_app/view/screen/auth/forgetPassword/verfyCode.dart';
 import 'package:ecommerce_app/view/screen/auth/verfyCodeSignUp.dart';
 import 'package:ecommerce_app/view/screen/homePage.dart';
+import 'package:ecommerce_app/view/screen/homeScreen.dart';
 import 'package:ecommerce_app/view/screen/language.dart';
 import 'package:ecommerce_app/view/screen/onBoarding.dart';
 import 'package:ecommerce_app/view/testView.dart';
@@ -34,6 +35,7 @@ List<GetPage<dynamic>>? getPages = [
   GetPage(name: AppRoote.successSignUp, page: () => SuccessSignup()),
   GetPage(name: AppRoote.verfyCodeSignUp, page: () => VerfyCodeSignUp()),
   GetPage(name: AppRoote.Language, page: () => Language()),
+  GetPage(name: AppRoote.homePage, page: () => Homescreen()),
   GetPage(name: AppRoote.homePage, page: () => Homepage()),
 ];
 

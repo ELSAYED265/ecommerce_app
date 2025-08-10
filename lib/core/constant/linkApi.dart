@@ -1,6 +1,12 @@
 class LinkApi {
   static const String server = "http://10.0.2.2/ecommerce";
   static const String test = "$server/test.php";
+  static const String imageStatic = "$server/upload";
+  ///////////////////////////////image//////////////////////
+
+  static const String imageCategories = "$imageStatic/categories";
+  static const String imageItems = "$imageStatic/items";
+
   /////////////////////////////AuthLink//////////////////////////////////
   static const String signUp = "$server/auth/signup.php";
   static const String login = "$server/auth/login.php";
@@ -11,4 +17,6 @@ class LinkApi {
   static const String checkEmail = "$server/forgetpassword/checkemail.php";
   static const String verfiycodeForForget =
       "$server/forgetpassword/verfiycode.php";
+  /////////////////////////////homepage//////////////////////////////////
+  static const String homePage = "$server/home.php";
 }
