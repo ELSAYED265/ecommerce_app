@@ -26,7 +26,7 @@ class Handlingdataview extends StatelessWidget {
         : statusRequest == StatusRequest.severfailer
         ? Center(child: Lottie.asset(AppImageAssets.server))
         : statusRequest == StatusRequest.failer
-        ? Center(child: Text(' No data'))
+        ? Center(child: Lottie.asset(AppImageAssets.empty))
         : widget;
   }
 }

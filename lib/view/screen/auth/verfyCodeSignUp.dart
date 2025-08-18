@@ -50,7 +50,8 @@ class VerfyCodeSignUp extends StatelessWidget {
                 CustomTextTitleAuth(title: "Chek code"),
                 SizedBox(height: 10),
                 CustomtextbodyAuth(
-                  body: "Please Enter the Digit Code Sened you  ",
+                  body:
+                      "Please Enter the Digit Code Send to \n${controller.email} ",
                 ),
                 SizedBox(height: 55),
                 PinCodeTextField(
@@ -70,6 +71,25 @@ class VerfyCodeSignUp extends StatelessWidget {
                     activeFillColor: Colors.white,
                   ),
                 ),
+                SizedBox(height: 5),
+                controller.canResend
+                    ? ElevatedButton(
+                        onPressed: () {
+                          controller.resendCode();
+                        },
+                        child: Text(
+                          "resend Verfiy",
+                          style: TextStyle(
+                            fontSize: 16,
+                            color: Colors.blue,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      )
+                    : Text(
+                        "can be resend after: ${controller.seconds}",
+                        style: TextStyle(fontSize: 16, color: Colors.grey[700]),
+                      ),
                 // OtpTextField(
                 //   borderRadius: BorderRadius.circular(12),
                 //   fieldWidth: 50,

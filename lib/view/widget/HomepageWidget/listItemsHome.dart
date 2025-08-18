@@ -1,4 +1,6 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:ecommerce_app/controller/homepageController.dart';
+import 'package:ecommerce_app/core/function/transualtDataBase.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../../core/constant/linkApi.dart';
@@ -35,15 +37,20 @@ class ListItemsHome extends GetView<HomepagecontrollerImp> {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Image.network(
-                    "${LinkApi.imageItems}/${controller.items[i].itemsImage}",
+                  CachedNetworkImage(
+                    imageUrl:
+                        "${LinkApi.imageItems}/${controller.items[i].itemsImage}",
                     width: 100,
                     height: 100,
                     fit: BoxFit.contain,
                   ),
                   const SizedBox(height: 5),
                   Text(
-                    controller.items[i].itemsNameEn ?? "",
+                    TransulateDataBase(
+                          controller.items[i].itemsNameAr,
+                          controller.items[i].itemsNameEn,
+                        ) ??
+                        "",
                     style: const TextStyle(
                       fontSize: 14,
                       fontWeight: FontWeight.w600,

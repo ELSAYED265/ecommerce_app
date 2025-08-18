@@ -1,16 +1,20 @@
+import 'package:dartz/dartz.dart';
 import 'package:flutter/material.dart';
 
-import 'CustomTextFormFeildHome.dart';
+import '../HomepageWidget/CustomTextFormFeildHome.dart';
 
-class CustomAppBarhome extends StatelessWidget {
-  const CustomAppBarhome({
+class CustomAppBar extends StatelessWidget {
+  const CustomAppBar({
     super.key,
     required this.onPressedsearch,
-    required this.onPressedIcon,
+    this.onPressedNotfi,
     required this.hintText,
+    this.onPressedFavori,
   });
   final void Function()? onPressedsearch;
-  final void Function()? onPressedIcon;
+  final void Function()? onPressedNotfi;
+  final void Function()? onPressedFavori;
+
   final String hintText;
   @override
   Widget build(BuildContext context) {
@@ -23,21 +27,22 @@ class CustomAppBarhome extends StatelessWidget {
             onPressedsearch: onPressedsearch,
           ),
         ),
-        SizedBox(width: 10),
+        SizedBox(width: 7),
         Container(
           padding: EdgeInsets.all(8),
+          margin: EdgeInsets.only(left: 7),
           decoration: BoxDecoration(
             color: Color(0xffF3F3F3),
             borderRadius: BorderRadius.circular(10),
           ),
           child: IconButton(
             icon: Icon(
-              Icons.notifications_active_outlined,
+              Icons.favorite_outline,
               size: 30,
               color: Colors.grey[600],
             ),
 
-            onPressed: onPressedIcon,
+            onPressed: onPressedFavori,
           ),
         ),
       ],

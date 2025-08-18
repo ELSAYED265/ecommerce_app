@@ -48,6 +48,12 @@ class MyTranslation extends Translations {
       "39": "fast delivery",
       "40":
           "Order now and it will be delivered \n to you in the fastest time \nand highest quality",
+      "41": "Find Product",
+      "42": " A summer surprise",
+      "43": "catch back 10%",
+      "44": "Product For you",
+      "45": "offer",
+      "46": "find item",
     },
     "ar": {
       "1": "اختار اللغه",
@@ -92,6 +98,12 @@ class MyTranslation extends Translations {
       "38": "تم التسجيل بنجاح",
       "39": "اسرع ديلفري في مصر",
       "40": "اطلب الوقتي وهيوصلك\n في اسرع وقت \n واعلي جوه",
+      "41": "ابحث عن منتج",
+      "42": "مفاجأت الصيف  ",
+      "43": "استرداد نقدي10%",
+      "44": "منتجات لك",
+      "45": "عرض",
+      "46": "البحث عن منتج",
     },
   };
 }

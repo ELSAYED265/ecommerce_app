@@ -33,24 +33,31 @@ class LoginControllerImp extends LoginController {
       statusRequest = HandlingData(response);
       if (statusRequest == StatusRequest.success) {
         if (response['status'] == "success") {
-          sevices.sharedPreferences.setString(
-            "id",
-            response['data']['users_id'].toString(),
-          );
-          sevices.sharedPreferences.setString(
-            "username",
-            response['data']['users_name'],
-          );
-          sevices.sharedPreferences.setString(
-            "email",
-            response['data']['users_email'],
-          );
-          sevices.sharedPreferences.setString(
-            "phone",
-            response['data']['users_phone'],
-          );
-          sevices.sharedPreferences.setString("step", "2");
-          Get.offNamed(AppRoote.homePage);
+          if (response['data']['users_approve'] == 1) {
+            sevices.sharedPreferences.setString(
+              "id",
+              response['data']['users_id'].toString(),
+            );
+            sevices.sharedPreferences.setString(
+              "username",
+              response['data']['users_name'],
+            );
+            sevices.sharedPreferences.setString(
+              "email",
+              response['data']['users_email'],
+            );
+            sevices.sharedPreferences.setString(
+              "phone",
+              response['data']['users_phone'],
+            );
+            sevices.sharedPreferences.setString("step", "2");
+            Get.offNamed(AppRoote.homeScreen);
+          } else {
+            Get.toNamed(
+              AppRoote.verfyCodeSignUp,
+              arguments: {"email": email.text},
+            );
+          }
         } else {
           Get.defaultDialog(
             title: "Warning",

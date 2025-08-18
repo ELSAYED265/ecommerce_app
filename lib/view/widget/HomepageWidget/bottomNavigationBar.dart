@@ -10,11 +10,12 @@ class CustomBottomNavigationBar extends GetView<HomeScreenControllerImp> {
   @override
   Widget build(BuildContext context) {
     return BottomAppBar(
+      height: 60,
       color: Colors.white,
       shape: CircularNotchedRectangle(),
       notchMargin: 17,
       child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
           ...List.generate(
             controller.pageList.length,
@@ -22,8 +23,8 @@ class CustomBottomNavigationBar extends GetView<HomeScreenControllerImp> {
               onPressed: () {
                 controller.changPage(index);
               },
-              text: controller.titleAppbar[index],
-              icon: controller.IconAppbar[index],
+              // text: controller.bottonAppbar[index]['title'],
+              icon: controller.bottonAppbar[index]['icon'],
               isactive: controller.currenPage == index ? true : false,
             ),
           ),

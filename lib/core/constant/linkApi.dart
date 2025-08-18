@@ -19,4 +19,12 @@ class LinkApi {
       "$server/forgetpassword/verfiycode.php";
   /////////////////////////////homepage//////////////////////////////////
   static const String homePage = "$server/home.php";
+  ///////////////////////////items//////////////////////////////
+  static const String items = "$server/items/items.php";
+  //////////////////////////favorite//////////////////////////////////////
+  static const String favoriteAdd = "$server/favorite/add.php";
+  static const String favoriteRemove = "$server/favorite/remove.php";
+  static const String favoriteView = "$server/favorite/view.php";
+  static const String removeFromMyfavorite =
+      "$server/favorite/removefromfavorite.php";
 }

@@ -7,10 +7,12 @@ class AppImageAssets {
   static const String onBoardingImageTwo = "$rootAssets/onboardingtwo.PNG";
   static const String onBoardingImageThree = "$rootAssets/onboardingthree.PNG";
   static const String onBoardingImageFour = "$rootAssets/onboardingfour.PNG";
+  /////////////////////////lottie//////////////////////////////////
   static const String loading = '$lottieAssets/loading.json';
   static const String server = '$lottieAssets/server.json';
   static const String internet = '$lottieAssets/internet.json';
   static const String TrailLoading = '$lottieAssets/Trail_loading.json';
+  static const String empty = '$lottieAssets/Empty.json';
   /////////////////////////////image.svg/////////////////
   static const String mobile_svg = '$svgAssets/mobile.svg';
   //////////////////////////////labtopImage///////////

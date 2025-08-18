@@ -15,4 +15,12 @@ class AppRoote {
   static const String Language = "/language";
   ////homePage
   static const String homePage = "/homepage";
+  static const String homeScreen = "/homescreen";
+  static const String items = "/items";
+  ////////////////productdetaills//////////////////////
+  static const String productDetails = "/productDetails";
+  /////////////////////////myFavorite////////////////////////////////////
+  static const String myFavorite = "/myfavorite";
+  /////////////////setting////////////////////////
+  static const String setting = "/myfavorite";
 }

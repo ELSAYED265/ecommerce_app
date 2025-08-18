@@ -11,6 +11,12 @@ class itemsModel {
   final int itemsDiscount;
   final String itemsData;
   final int itemsCategories;
+  final int categoriesId;
+  final String categoriesNameEn;
+  final String categoriesNameAr;
+  final String categoriesImage;
+  final String categoriesDatatime;
+  final String favorite;
 
   itemsModel({
     required this.itemsId,
@@ -25,6 +31,12 @@ class itemsModel {
     required this.itemsDiscount,
     required this.itemsData,
     required this.itemsCategories,
+    required this.categoriesId,
+    required this.categoriesNameEn,
+    required this.categoriesNameAr,
+    required this.categoriesImage,
+    required this.categoriesDatatime,
+    required this.favorite,
   });
 
   factory itemsModel.fromJson(Map<String, dynamic> json) {
@@ -41,6 +53,12 @@ class itemsModel {
       itemsDiscount: json['items_discount'],
       itemsData: json['items_data'],
       itemsCategories: json['items_categories'],
+      categoriesId: json['categories_id'],
+      categoriesNameEn: json['categories_name_en'],
+      categoriesNameAr: json['categories_name_ar'],
+      categoriesImage: json['categories_image'],
+      categoriesDatatime: json['categories_datatime'],
+      favorite: json['favorite'].toString(),
     );
   }
 }

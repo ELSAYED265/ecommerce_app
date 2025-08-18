@@ -1,4 +1,5 @@
 import 'package:ecommerce_app/core/constant/Roote.dart';
+import 'package:ecommerce_app/core/services/sevices.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 
@@ -21,6 +22,7 @@ class SignUpControllerImp extends SignUpController {
   GlobalKey<FormState> formState = GlobalKey();
   List data = [];
   SiginUpData siginUpData = SiginUpData(Get.find());
+  MySevices sevices = Get.find();
   @override
   SignUp() async {
     var formdata = formState.currentState;
@@ -39,6 +41,7 @@ class SignUpControllerImp extends SignUpController {
           //data.addAll(respons['data']);
           Get.offNamed(
             AppRoote.verfyCodeSignUp,
+
             arguments: {'email': email.text},
           );
         } else {

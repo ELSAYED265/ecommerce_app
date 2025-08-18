@@ -1,7 +1,7 @@
 import 'package:ecommerce_app/core/class/statusRequest.dart';
 import 'package:ecommerce_app/core/constant/Roote.dart';
 import 'package:get/get.dart';
-
+import 'dart:async';
 import '../../core/function/handligDataController.dart';
 import '../../data/datasource/remote/Auth/verfiycodeSignUpData.dart';
 
@@ -14,6 +14,9 @@ class VerfyCodeSignUpcontrollerImp extends VerfyCodeSignUpcontroller {
   String? email;
   StatusRequest? statusRequest;
   VerfiyCodeSignupData verfiyCodeSignupData = VerfiyCodeSignupData(Get.find());
+  int seconds = 60; // وقت العداد بالثواني
+  Timer? timer;
+  bool get canResend => seconds == 0;
   @override
   chekCode() {}
 
@@ -39,8 +42,32 @@ class VerfyCodeSignUpcontrollerImp extends VerfyCodeSignUpcontroller {
     update();
   }
 
+  startTimer() {
+    seconds = 60;
+    update();
+
+    timer?.cancel();
+    timer = Timer.periodic(const Duration(seconds: 1), (t) {
+      if (seconds > 0) {
+        seconds--;
+        update();
+      } else {
+        t.cancel();
+        update();
+      }
+    });
+  }
+
+  resendCode() async {
+    verfiyCodeSignupData.resendVerfiycodeData(email!);
+    print("🔄 إعادة إرسال الكود ...");
+    startTimer();
+  }
+
+  @override
   @override
   void onInit() {
+    startTimer();
     email = Get.arguments['email'];
     super.onInit();
   }
@@ -48,6 +75,7 @@ class VerfyCodeSignUpcontrollerImp extends VerfyCodeSignUpcontroller {
   //ملهاش لزمه اوي
   @override
   void dispose() {
+    timer?.cancel();
     super.dispose();
   }
 }

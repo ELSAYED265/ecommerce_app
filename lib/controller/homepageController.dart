@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:ecommerce_app/core/constant/Roote.dart';
 import 'package:ecommerce_app/core/services/sevices.dart';
 import 'package:ecommerce_app/data/datasource/remote/homeData.dart';
@@ -15,16 +17,18 @@ abstract class Homepagecontroller extends GetxController {
   MySevices mySevices = Get.find();
 
   getData() {}
+  goToItem(List categories, int selectCat, String categoriesid) {}
 }
 
 class HomepagecontrollerImp extends Homepagecontroller {
   String? username;
+  String? id;
   Homedata homedata = Homedata(Get.find());
   late StatusRequest statusRequest;
   List<CategoriesModel> Categories = [];
   List<itemsModel> items = [];
   List item = [];
-  initaildata() {}
+  String? postionCardHome;
   @override
   getData() async {
     statusRequest = StatusRequest.loading;
@@ -48,9 +52,29 @@ class HomepagecontrollerImp extends Homepagecontroller {
     update();
   }
 
+  intialData() {
+    username = mySevices.sharedPreferences.getString('username');
+    id = mySevices.sharedPreferences.getString("id");
+    postionCardHome = mySevices.sharedPreferences.getString("lang");
+  }
+
+  @override
+  goToItem(categories, selectCat, categorisId) {
+    Get.toNamed(
+      AppRoote.items,
+      arguments: {
+        "categories": categories,
+        "selectcat": selectCat,
+        "categoriersid": categorisId,
+        "userid": id,
+      },
+    );
+  }
+
   @override
   void onInit() {
     getData();
+    intialData();
     super.onInit();
   }
 }

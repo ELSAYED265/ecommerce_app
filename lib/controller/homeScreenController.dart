@@ -1,4 +1,5 @@
 import 'package:ecommerce_app/view/screen/homePage.dart';
+import 'package:ecommerce_app/view/screen/setting.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -16,15 +17,15 @@ class HomeScreenControllerImp extends HomeScreenController {
       children: [Center(child: Text("setting"))],
     ),
     Column(children: [Center(child: Text("profile"))]),
-    Column(children: [Center(child: Text("favorite"))]),
+    SettingsPage(),
   ];
-  List titleAppbar = ['home', 'satting', 'profile', 'favorite'];
-  List<IconData> IconAppbar = [
-    Icons.home,
-    Icons.settings,
-    Icons.person,
-    Icons.favorite_outlined,
+  List bottonAppbar = [
+    {'title': 'home', 'icon': Icons.home},
+    {'title': 'notifcation', 'icon': Icons.notifications_active_outlined},
+    {'title': 'profile', 'icon': Icons.person},
+    {'title': 'setting', 'icon': Icons.settings},
   ];
+  //'home', 'satting', 'profile', 'favorite'
   @override
   changPage(int i) {
     currenPage = i;

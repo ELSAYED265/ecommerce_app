@@ -13,4 +13,9 @@ class VerfiyCodeSignupData {
     });
     return response.fold((l) => l, (r) => r);
   }
+
+  resendVerfiycodeData(String email) async {
+    var response = await crud.PostData(LinkApi.verfiyCode, {'email': email});
+    return response.fold((l) => l, (r) => r);
+  }
 }

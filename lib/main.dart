@@ -43,3 +43,8 @@ class MyApp extends StatelessWidget {
     );
   }
 }
+
+// if yo want to storage data
+//1 mysql  online andv store changes if you openc from anther device
+//2 sqflite offline not save changes
+//3 Hive or sharedpref or getStorge

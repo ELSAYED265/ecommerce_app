@@ -7,12 +7,12 @@ class CustomBottomAppbar extends StatelessWidget {
   const CustomBottomAppbar({
     super.key,
     required this.onPressed,
-    required this.text,
+    // this.text,
     required this.icon,
     required this.isactive,
   });
   final void Function()? onPressed;
-  final String text;
+  //final String text;
   final IconData icon;
   final bool isactive;
   @override
@@ -20,18 +20,19 @@ class CustomBottomAppbar extends StatelessWidget {
     return MaterialButton(
       onPressed: onPressed,
       child: Column(
+        mainAxisSize: MainAxisSize.min,
         children: [
           Icon(
             icon,
             size: 30,
             color: isactive == true ? Color(0xfff94449) : Colors.black,
           ),
-          Text(
-            text,
-            style: TextStyle(
-              color: isactive == true ? Color(0xfff94449) : Colors.black,
-            ),
-          ),
+          // Text(
+          //   text,
+          //   style: TextStyle(
+          //     color: isactive == true ? Color(0xfff94449) : Colors.black,
+          //   ),
+          // ),
         ],
       ),
     );

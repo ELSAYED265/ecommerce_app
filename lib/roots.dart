@@ -10,8 +10,12 @@ import 'package:ecommerce_app/view/screen/auth/forgetPassword/verfyCode.dart';
 import 'package:ecommerce_app/view/screen/auth/verfyCodeSignUp.dart';
 import 'package:ecommerce_app/view/screen/homePage.dart';
 import 'package:ecommerce_app/view/screen/homeScreen.dart';
+import 'package:ecommerce_app/view/screen/items.dart';
 import 'package:ecommerce_app/view/screen/language.dart';
+import 'package:ecommerce_app/view/screen/myfavorite.dart';
 import 'package:ecommerce_app/view/screen/onBoarding.dart';
+import 'package:ecommerce_app/view/screen/productDetails.dart';
+import 'package:ecommerce_app/view/screen/setting.dart';
 import 'package:ecommerce_app/view/testView.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get_navigation/src/routes/get_route.dart';
@@ -19,6 +23,7 @@ import 'package:path/path.dart';
 
 import 'core/constant/Roote.dart';
 
+// middlewares: [MyMiddleWare()]
 List<GetPage<dynamic>>? getPages = [
   GetPage(name: "/", page: () => Language(), middlewares: [MyMiddleWare()]),
   //GetPage(name: "/", page: () => Testview()),
@@ -36,7 +41,13 @@ List<GetPage<dynamic>>? getPages = [
   GetPage(name: AppRoote.verfyCodeSignUp, page: () => VerfyCodeSignUp()),
   GetPage(name: AppRoote.Language, page: () => Language()),
   GetPage(name: AppRoote.homePage, page: () => Homescreen()),
-  GetPage(name: AppRoote.homePage, page: () => Homepage()),
+  GetPage(name: AppRoote.homeScreen, page: () => Homescreen()),
+  GetPage(name: AppRoote.items, page: () => Items()),
+  GetPage(name: AppRoote.productDetails, page: () => Productdetails()),
+  //////////////////////////////myfavorite////////////////////////////////////////
+  GetPage(name: AppRoote.myFavorite, page: () => Myfavorite()),
+  ///////////////////////////////setting/////////////////
+  GetPage(name: AppRoote.setting, page: () => SettingsPage()),
 ];
 
 // Map<String, Widget Function(BuildContext)> routes = {
